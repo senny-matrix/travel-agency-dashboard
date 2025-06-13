@@ -24,10 +24,13 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-import { registerLicense } from "@syncfusion/ej2-base";
-registerLicense(import.meta.env.VITE_EJ2_LICENSE_KEY);
+// import { registerLicense } from "@syncfusion/ej2-base";
+// registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
 
-registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
+import * as ej2base from '@syncfusion/ej2-base';
+const licenseManager = (ej2base as any).default || ej2base;
+licenseManager.registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
+
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
